@@ -4,7 +4,7 @@ import axios from "axios";
 function Form({ getAllProducts }) {
     const [product, setProduct] = useState({
         name: "",
-        expirationDate: date,
+        expirationDate: Date,
         category: "",
     });
 
