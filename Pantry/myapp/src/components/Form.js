@@ -23,7 +23,7 @@ function Form({ getAllProducts }) {
             getAllProducts();
         })
         .catch((err) => console.log(err));
-    }
+    };
 
     return (
         <div>

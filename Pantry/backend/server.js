@@ -12,7 +12,7 @@ const port = 8000;
 app.use(express.json());
 app.use(cors());
 
-app.use("/todos", Router);
+app.use("/products", Router);
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).send("Server Error");
