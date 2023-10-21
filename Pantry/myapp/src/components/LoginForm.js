@@ -10,11 +10,12 @@ function Login() {
 
     async function handleLogin(e) {
         e.preventDefault();
-        let res = await axios.post("http://localhost:8000/login", {email, password});
+        let res = await axios.post("http://localhost:8000/login", { email, password });
         token = res.data;
         localStorage.setItem("token", token);
         decoded = jwt_decode(token);
-    } 
+    }
+
     return (
         <div>
             <form>
@@ -23,10 +24,10 @@ function Login() {
                 <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}></input>
                 <label>Password</label>
                 <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-                <input type="submit" onClick={(e) => handleLogin}>Log in</input>
+                <input type="submit" onClick={(e) => handleLogin(e)}>Log in</input>
             </form>
         </div>
-    )
+    );
 }
 
 export default Login;
