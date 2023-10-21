@@ -20,9 +20,9 @@ function Login() {
             <form>
                 <h2>Log in</h2>
                 <label>Email</label>
-                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                <input type="text" name={email} onChange={(e) => setEmail(e.target.value)}></input>
                 <label>Password</label>
-                <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                <input type="text" name={password} onChange={(e) => setPassword(e.target.value)}></input>
                 <input type="submit" onClick={(e) => handleLogin}>Log in</input>
             </form>
         </div>

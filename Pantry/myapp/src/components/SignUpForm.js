@@ -21,9 +21,9 @@ function Register() {
         <form>
             <h2>Sign Up</h2>
             <label>Email</label>
-            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+            <input type="text" name={email} onChange={(e) => setEmail(e.target.value)}></input>
             <label>Password</label>
-            <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+            <input type="text" name={password} onChange={(e) => setPassword(e.target.value)}></input>
             <input type="submit" onClick={(e) => handleRegister}>Sign Up</input>
         </form>
     </div>

@@ -59,43 +59,15 @@ function Product({ getAllProducts, products }) {
 
   return (
     <div>
-      {/* Add Product */}
-      <div>
-        <input
-          type="text"
-          placeholder="Product Name"
-          value={newProduct.name}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, name: e.target.value })
-          }
-        />
-        <input
-          type="text"
-          placeholder="Expiration Date"
-          value={newProduct.expirationDate}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, expirationDate: e.target.value })
-          }
-        />
-        <input
-          type="text"
-          placeholder="Category"
-          value={newProduct.category}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, category: e.target.value })
-          }
-        />
-        <button onClick={addProduct}>Add</button>
-      </div>
-
+      
       {/* Render Existing Products */}
       {products.map((product) => (
         <div key={product._id}>
           <div>
-            <input
+            {/* <input
               type="checkbox"
               onChange={() => toggleStatus(product._id, !product.status)}
-            />
+            /> */}
             <span>{product.name}</span>
             <span>{product.expirationDate}</span>
             <span>{product.category}</span>
