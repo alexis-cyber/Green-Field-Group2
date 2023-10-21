@@ -30,8 +30,8 @@ function App() {
     <BrowserRouter>
     { <NavBar/>}
     <Routes>
-        <Route path="/form" element={<Form getAllProducts={getAllProducts} />}/>
-        <Route path="/" element={<ProductList products={products} getAllProducts={getAllProducts} />}/> 
+        <Route path="/create" element={<Form getAllProducts={getAllProducts} />}/>
+        <Route path="/products" element={<ProductList products={products} getAllProducts={getAllProducts} />}/> 
         <Route path="/login" element={<Login Login={Login}/>}/>
         <Route path="/register" element={<Register Register={Register}/>}/>
     </Routes>
