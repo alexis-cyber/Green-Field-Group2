@@ -56,100 +56,96 @@ function Product({ getAllProducts, products }) {
       console.error("Error updating product:", error);
     }
   }
-
-  return (
-    <div>
-      {/* Add Product */}
-      <div>
-        <input
-          type="text"
-          placeholder="Product Name"
-          value={newProduct.name}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, name: e.target.value })
-          }
-        />
-        <input
-          type="text"
-          placeholder="Expiration Date"
-          value={newProduct.expirationDate}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, expirationDate: e.target.value })
-          }
-        />
-        <input
-          type="text"
-          placeholder="Category"
-          value={newProduct.category}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, category: e.target.value })
-          }
-        />
-        <button onClick={addProduct}>Add</button>
-      </div>
-
-      {/* Render Existing Products */}
-      {products.map((product) => (
-        <div key={product._id}>
-          <div>
-            <input
-              type="checkbox"
-              onChange={() => toggleStatus(product._id, !product.status)}
-            />
-            <span>{product.name}</span>
-            <span>{product.expirationDate}</span>
-            <span>{product.category}</span>
-            <button onClick={() => deleteProduct(product._id)}>
-              <i className="material-icons">delete</i>
-            </button>
-            <button
-              onClick={() => {
-                setEditProduct({
-                  id: product._id,
-                  name: product.name,
-                  expirationDate: product.expirationDate,
-                  category: product.category
-                });
-              }}
-            >
-              <i className="material-icons">edit</i>
-            </button>
-          </div>
-
-          {/* Render the text as editable input if currently being edited */}
-          {editProduct.id === product._id && (
-            <div>
-              <input
-                type="text"
-                value={editProduct.name}
-                onChange={(e) =>
-                  setEditProduct({ ...editProduct, name: e.target.value })
-                }
-              />
-              <input
-                type="text"
-                value={editProduct.expirationDate}
-                onChange={(e) =>
-                  setEditProduct({
-                    ...editProduct,
-                    expirationDate: e.target.value
-                  })
-                }
-              />
-              <input
-                type="text"
-                value={editProduct.category}
-                onChange={(e) =>
-                  setEditProduct({ ...editProduct, category: e.target.value })
-                }
-              />
-              <button onClick={updateProduct}>Save</button>
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  );
 }
+//   return (
+//     <div>
+//       {/* Add Product */}
+//       <div>
+//         <input
+//           type="text"
+//           placeholder="Product Name"
+//           value={newProduct.name}
+//           onChange={(e) =>
+//             setNewProduct({ ...newProduct, name: e.target.value })
+//           }
+//         />
+//         <input
+//           type="text"
+//           placeholder="Expiration Date"
+//           value={newProduct.expirationDate}
+//           onChange={(e) =>
+//             setNewProduct({ ...newProduct, expirationDate: e.target.value })
+//           }
+//         />
+//         <input
+//           type="text"
+//           placeholder="Category"
+//           value={newProduct.category}
+//           onChange={(e) =>
+//             setNewProduct({ ...newProduct, category: e.target.value })
+//           }
+//         />
+//         <button onClick={addProduct}>Add</button>
+//       </div>
+      
+//       {/* Render Existing Products */}
+//       {products.map((product) => (
+//         <div key={product._id}>
+//           <div>
+//             <span>{product.name}</span>
+//             <span>{product.expirationDate}</span>
+//             <span>{product.category}</span>
+//             <button onClick={() => deleteProduct(product._id)}>
+//               <i className="material-icons">delete</i>
+//             </button>
+//             <button
+//               onClick={() => {
+//                 setEditProduct({
+//                   id: product._id,
+//                   name: product.name,
+//                   expirationDate: product.expirationDate,
+//                   category: product.category
+//                 });
+//               }}
+//             >
+//               <i className="material-icons">edit</i>
+//             </button>
+//           </div>
+
+//           {/* Render the text as editable input if currently being edited */}
+//           {editProduct.id === product._id && (
+//             <div>
+//               <input
+//                 type="text"
+//                 value={editProduct.name}
+//                 onChange={(e) =>
+//                   setEditProduct({ ...editProduct, name: e.target.value })
+//                 }
+//               />
+//               <input
+//                 type="text"
+//                 value={editProduct.expirationDate}
+//                 onChange={(e) =>
+//                   setEditProduct({
+//                     ...editProduct,
+//                     expirationDate: e.target.value
+//                   })
+//                 }
+//               />
+//               <input
+//                 type="text"
+//                 value={editProduct.category}
+//                 onChange={(e) =>
+//                   setEditProduct({ ...editProduct, category: e.target.value })
+//                 }
+//               />
+//               <button onClick={updateProduct}>Save</button>
+//             </div>
+//           )}
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
 
 export default Product;
