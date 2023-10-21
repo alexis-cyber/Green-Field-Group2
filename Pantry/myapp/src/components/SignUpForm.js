@@ -1,30 +1,28 @@
 import { useState } from "react";
 import axios from "axios";
-import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    let token;
-    let decoded;
+    const navigate = useNavigate();
 
     async function handleRegister(e) {
         e.preventDefault();
         let res = await axios.post("http://localhost:8000/register", {email, password});
-        token = res.data;
-        localStorage.setItem("token", token);
-        decoded = jwt_decode(token);
+        alert(res.data.msg);
+        navigate("/login");
     } 
-
+    
     return (
     <div>
-        <form>
+        <form onSubmit={handleRegister}>
             <h2>Sign Up</h2>
             <label>Email</label>
-            <input type="text" name={email} onChange={(e) => setEmail(e.target.value)}></input>
+            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
             <label>Password</label>
-            <input type="text" name={password} onChange={(e) => setPassword(e.target.value)}></input>
-            <input type="submit" onClick={(e) => handleRegister}>Sign Up</input>
+            <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <input type="submit" value="Sign Up"/>
         </form>
     </div>
     )

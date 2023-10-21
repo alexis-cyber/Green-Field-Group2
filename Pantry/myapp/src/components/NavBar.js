@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
 
@@ -20,7 +20,7 @@ function Navbar() {
   
   return (
     <nav>
-      <ul>
+      {/* <ul>
         <li><a href="/login">Home</a></li>
         <li><a href="/create">Create</a></li>
         <li><a href="/products">My Pantry</a></li>
@@ -31,7 +31,11 @@ function Navbar() {
         ) : (
           <li><a href="/register">Login</a></li> // Display login link if not logged in
         )}
-      </ul>
+      </ul> */}
+      <Link to="/">Home</Link>
+      <Link to="/form">Create</Link>
+      <Link to="/login">Login</Link>
+      <Link to="/register">Register</Link>
     </nav>
   );
 }
