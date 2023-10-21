@@ -5,15 +5,17 @@ import jwt_decode from "jwt-decode";
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    let token;
-    let decoded;
 
     async function handleLogin(e) {
+        let token;
+        let decoded;
         e.preventDefault();
         let res = await axios.post("http://localhost:8000/login", { email, password });
         token = res.data;
         localStorage.setItem("token", token);
+
         decoded = jwt_decode(token);
+        console.log(decoded.email);
     }
 
     return (
