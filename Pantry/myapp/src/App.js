@@ -1,10 +1,11 @@
 import Form from "./components/Form";
+import Login from "./components/LoginForm";
+import Register from "./components/SignUpForm";
 // import ProductList from "./components/ProductList";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Form from "../src/components/Form";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import navbar
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -18,18 +19,22 @@ function App() {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
     getAllProducts();
   }, []);
 
   return (
-    <div className="App">
-      <Form getAllProducts={getAllProducts} />
-      {/* <ProductList products={products} getAllProducts={getAllProducts} /> */}
-      
-    </div>
+    <BrowserRouter>
+    {/* <NavBar/> */}
+    <Routes>
+        <Route path="/form" element={<Form getAllProducts={getAllProducts} />}/>
+        {/* <Route path="/" element={<ProductList products={products} getAllProducts={getAllProducts} />}/> */}
+        {/* <Route path="/login" element={<Login Login={Login}/>}/>
+        <Route path="/register" element={<Register Register={Register}/>}/> */}
+    </Routes>
+    </BrowserRouter>
   );
 }
 
