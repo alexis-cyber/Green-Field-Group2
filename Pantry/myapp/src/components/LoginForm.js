@@ -12,7 +12,7 @@ function Login() {
     async function handleLogin(e) {
         try {
             e.preventDefault();
-            let res = await axios.post("http://localhost:8000/login", { email, password });
+            let res = await axios.post("http://localhost:8000/products/login", { email, password });
             console.log(res.data);
             if (res.status === 200) {
                 localStorage.setItem("token", res.data.token);
@@ -27,10 +27,10 @@ function Login() {
 
     return (
         <div>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleLogin} value="LogInForm">
                 <h2>Log in</h2>
                 <label>Email</label>
-                <input type="text" name={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
                 <label>Password</label>
                 <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <input type="submit" value="Log in"/>

@@ -9,14 +9,14 @@ function Register() {
 
     async function handleRegister(e) {
         e.preventDefault();
-        let res = await axios.post("http://localhost:8000/register", {email, password});
+        let res = await axios.post("http://localhost:8000/products/register", {email, password});
         alert(res.data.msg);
         navigate("/login");
     } 
     
     return (
     <div>
-        <form onSubmit={handleRegister}>
+        <form onSubmit={handleRegister} value="SignUpForm">
             <h2>Sign Up</h2>
             <label>Email</label>
             <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
