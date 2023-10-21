@@ -28,14 +28,14 @@ function Form({ getAllProducts }) {
     return (
         <div>
             <div className="formContainer">
-                <form>
+                <form onSubmit={(e) => {addNewProduct(e)}}>
                     <label>Product Name</label><br/>
-                    <input type="text" name="name" onChange={handleInputChange} value={product.name}/>
+                    <input type="text" name="name" onChange={handleInputChange} value={product.name}/><br/>
                     <label>Expiration Date</label><br/>
-                    <input type="date" name="expirationDate" onChange={handleInputChange} value={product.expirationDate}/>
+                    <input type="date" name="expirationDate" onChange={handleInputChange} value={product.expirationDate}/><br/>
                     <label>Product Category</label><br/>
-                    <input type="text" name="category" onChange={handleInputChange} value={product.category}/>
-                    <button type="submit" onClick={(e) => {addNewProduct(e)}}>Add</button>
+                    <input type="text" name="category" onChange={handleInputChange} value={product.category}/><br/>
+                    <button type="submit">Add</button>
                 </form>
             </div>
         </div>
