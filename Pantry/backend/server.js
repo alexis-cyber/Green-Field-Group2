@@ -2,11 +2,9 @@ const express = require("express");
 const connection = require("./connection");
 const Router = require("./Routers/router.js");
 const userRouter = require("./Routers/userRouter.js");
-const Controller = require("./Controllers/controller.js");
 const cors = require("cors");
 const User = require("./Models/UserModel");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+
 const verifyToken = require("./Middleware/auth");
 
 const app = express();
@@ -16,8 +14,8 @@ const port = 8000;
 app.use(express.json());
 app.use(cors());
 
-app.use("/products", Router);
-app.use("/", userRouter);
+app.use("/products", Router, userRouter);
+
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).send("Server Error");
