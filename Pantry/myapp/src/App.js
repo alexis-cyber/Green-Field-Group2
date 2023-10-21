@@ -27,10 +27,13 @@ function App() {
 
   return (
     <BrowserRouter>
-    {/* <NavBar/> */}
+    { <NavBar/>}
     <Routes>
         <Route path="/form" element={<Form getAllProducts={getAllProducts} />}/>
         <Route path="/" element={<ProductList products={products} getAllProducts={getAllProducts} />}/>
+        <Route path="/login" element={<Login Login={Login}/>}/>
+        <Route path="/register" element={<Register Register={Register}/>}/>
+        <Route path="/" element={<ProductList products={products} getAllProducts={getAllProducts} />}/> 
         <Route path="/login" element={<Login Login={Login}/>}/>
         <Route path="/register" element={<Register Register={Register}/>}/>
     </Routes>
