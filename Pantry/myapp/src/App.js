@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductList from "./components/ProductList";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import NavBar from "./components/NavBar"
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    {/* <NavBar/> */}
+    { <NavBar/>}
     <Routes>
         <Route path="/form" element={<Form getAllProducts={getAllProducts} />}/>
         <Route path="/" element={<ProductList products={products} getAllProducts={getAllProducts} />}/> 
