@@ -1,44 +1,50 @@
-import { Link } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import jwtDecode from 'jwt-decode';
 
 function Navbar() {
-    const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  let token;
+  let decoded;
   
-    useEffect(() => {
-      // Check if a token exists in local storage
-      const token = localStorage.getItem('token');
-      
+  try {
+  // Check if a token exists in local storage
+  token = localStorage.getItem('token');
+  decoded = jwtDecode(token);
+  } catch (err) {
+    console.log(err);
+  }
+
+    function handleLogout() {
       if (token) {
-        // Decode the token to get user information
-        const decoded = jwtDecode(token);
-        setUser(decoded);
+        localStorage.removeItem("token");
+        navigate("/login");
       } else {
-        setUser(null);
+        return;
       }
-    }, []);
-  
+    }
+
   return (
-    <nav>
-      {/* <ul>
-        <li><a href="/login">Home</a></li>
-        <li><a href="/create">Create</a></li>
-        <li><a href="/products">My Pantry</a></li>
-        <li><a href="/form">Create</a></li>
-        <li><a href="/">My Pantry</a></li>
-        {user ? (
-          <li>{user.username}</li> // Display user information if logged in
-        ) : (
-          <li><a href="/register">Login</a></li> // Display login link if not logged in
-        )}
-      </ul> */}
-      <Link to="/">Home</Link>
-      <Link to="/form">Create</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/register">Register</Link>
-    </nav>
+    <>       
+    {!token ? ( 
+      <nav>
+        <div>
+          <Link to="/">Home</Link>
+          <Link to="/login">Log In</Link>
+          <Link to="/register">Register</Link>
+        </div>
+      </nav>
+     ) : (
+        <nav>
+          <div>
+            <Link>{decoded.email}</Link>
+            <Link to="/">Home</Link>
+            <Link to="/form">Create</Link>
+            <Link onClick={handleLogout}>Log Out</Link>
+          </div>
+        </nav> 
+      )}
+  </>
   );
 }
+
 export default Navbar;
-
-
