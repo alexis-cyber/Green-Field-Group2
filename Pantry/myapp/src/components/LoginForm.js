@@ -8,6 +8,7 @@ function Login() {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     // let decoded;
+    // let token;
 
     async function handleLogin(e) {
         try {

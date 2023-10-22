@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 function Form({ getAllProducts }) {
+    let token = localStorage.getItem("token");
     const [product, setProduct] = useState({
         name: "",
         expirationDate: Date,
@@ -18,7 +19,7 @@ function Form({ getAllProducts }) {
     const addNewProduct = (e) => {
         e.preventDefault();
         axios
-        .post("")
+        .post("http://localhost:8000/products/create", product, {headers:{Authorization:`Bearer ${token}`}})
         .then(() => { 
             getAllProducts();
         })
