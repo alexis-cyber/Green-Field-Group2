@@ -18,6 +18,7 @@ function Navbar() {
       if (token) {
         localStorage.removeItem("token");
         navigate("/login");
+        window.location.reload()
       } else {
         return;
       }
