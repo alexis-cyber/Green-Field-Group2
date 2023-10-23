@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../components/form.css";
 
 function Register() {
     const [email, setEmail] = useState("");
@@ -15,13 +16,13 @@ function Register() {
     } 
     
     return (
-    <div>
-        <form onSubmit={handleRegister} value="SignUpForm">
-            <h2>Sign Up</h2>
-            <label>Email</label>
-            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <label>Password</label>
-            <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
+    <div className="formContainer">
+        <form onSubmit={handleRegister} value="SignUpForm" className="form">
+            <h2>Sign Up</h2><br/>
+            <label>Email</label><br/>
+            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/><br/>
+            <label>Password</label><br/>
+            <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}/><br/>
             <input type="submit" value="Sign Up"/>
         </form>
     </div>

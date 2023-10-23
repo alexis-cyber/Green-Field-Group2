@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "../components/form.css";
 
 function Form({ getAllProducts }) {
     let token = localStorage.getItem("token");
@@ -29,7 +30,7 @@ function Form({ getAllProducts }) {
     return (
         <div>
             <div className="formContainer">
-                <form onSubmit={(e) => {addNewProduct(e)}}>
+                <form onSubmit={(e) => {addNewProduct(e)}} className="form">
                     <label>Product Name</label><br/>
                     <input type="text" name="name" onChange={handleInputChange} value={product.name}/><br/>
                     <label>Expiration Date</label><br/>
