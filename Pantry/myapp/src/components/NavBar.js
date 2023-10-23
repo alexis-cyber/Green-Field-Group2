@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import jwtDecode from 'jwt-decode';
+import "../components/navbar.css";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -25,22 +26,25 @@ function Navbar() {
     }
 
   return (
-    <>       
+    <>    
+    <h1 className="title">That's your Pantry</h1>   
     {!token ? ( 
-      <nav>
-        <div>
-          <Link to="/">Home</Link>
-          <Link to="/login">Log In</Link>
-          <Link to="/register">Register</Link>
+      <nav className="navbar">
+        <div className="linkGroup">
+          
+          <Link to="/" className="link">Home</Link>
+          <Link to="/login" className="link">Log In</Link>
+          <Link to="/register" className="link">Register</Link>
         </div>
       </nav>
      ) : (
-        <nav>
-          <div>
-            <Link>{decoded.email}</Link>
-            <Link to="/">Home</Link>
-            <Link to="/form">Create</Link>
-            <Link onClick={handleLogout}>Log Out</Link>
+        <nav className="navbar">
+          <div className="linkGroup">
+          
+            <Link className="link">{decoded.email}</Link>
+            <Link to="/" className="link">Home</Link>
+            <Link to="/form" className="link">Create</Link>
+            <Link onClick={handleLogout} className="link">Log Out</Link>
           </div>
         </nav> 
       )}

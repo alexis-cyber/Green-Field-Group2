@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import "../components/product.css";
 
 function Product({ getAllProducts, products }) {
   const [newProduct, setNewProduct] = useState({
@@ -61,13 +62,14 @@ function Product({ getAllProducts, products }) {
     <div>
       {/* Render Existing Products */}
       {products.map((product) => (
-        <div key={product._id}>
-          <div>
+        <div key={product._id} className="productCard">
+          <div className="product">
             <span>{product.name}</span>
             <span>{product.expirationDate}</span>
             <span>{product.category}</span>
-            <button onClick={() => deleteProduct(product._id)}>
-              <i className="material-icons">delete</i>
+            <div className="buttonsContainer">
+            <button onClick={() => deleteProduct(product._id)} className="deleteButton">
+              <i className="material-icons">Delete</i>
             </button>
             <button
               onClick={() => {
@@ -77,15 +79,16 @@ function Product({ getAllProducts, products }) {
                   expirationDate: product.expirationDate,
                   category: product.category
                 });
-              }}
+              }} className="editButton"
             >
-              <i className="material-icons">edit</i>
+              <i className="material-icons">Edit</i>
             </button>
+            </div>
           </div>
 
           {/* Render the text as editable input if currently being edited */}
           {editProduct.id === product._id && (
-            <div>
+            <div className="editForm">
               <input
                 type="text"
                 value={editProduct.name}
