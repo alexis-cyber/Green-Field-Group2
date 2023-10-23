@@ -10,7 +10,7 @@ function Register() {
 
     async function handleRegister(e) {
         e.preventDefault();
-        let res = await axios.post("http://localhost:8000/products/register", {email, password});
+        let res = await axios.post("https://mypantry2.onrender.com/products/register", {email, password});
         alert(res.data.msg);
         navigate("/login");
     } 

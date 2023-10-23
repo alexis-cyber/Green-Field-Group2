@@ -18,7 +18,7 @@ function Product({ getAllProducts, products }) {
 
   async function deleteProduct(id) {
     try {
-      await axios.delete(`http://localhost:8000/products/${id}`);
+      await axios.delete(`https://mypantry2.onrender.com/products/${id}`);
     } catch (error) {
       console.log("Error deleting product:", error);
     }
@@ -27,7 +27,7 @@ function Product({ getAllProducts, products }) {
 
   async function addProduct() {
     try {
-      await axios.post("http://localhost:8000/products", newProduct);
+      await axios.post("https://mypantry2.onrender.com/products", newProduct);
       setNewProduct({
         name: "",
         expirationDate: "",
@@ -41,7 +41,7 @@ function Product({ getAllProducts, products }) {
 
   async function updateProduct() {
     try {
-      await axios.put(`http://localhost:8000/products/${editProduct.id}`, {
+      await axios.put(`https://mypantry2.onrender.com/products/${editProduct.id}`, {
         name: editProduct.name,
         expirationDate: editProduct.expirationDate,
         category: editProduct.category
